@@ -72,7 +72,10 @@ To run this project, please follow these steps:
         ```
     -   The script will open a browser, perform all actions, and save the final case details as `Gaya-Case-Details.pdf` in the project folder. The query will also be logged in `queries.db`.
 
-6.  **final_result:**
+### Final Output
+
+Running the `scraper.py` script produces a successful result in the terminal and saves the case details page as a PDF in the project folder.
+
      <img width="1916" height="1008" alt="Screenshot 2025-08-10 144931" src="https://github.com/user-attachments/assets/eeec9854-bf90-4524-a01d-58062e056f9c" />
    
   
@@ -85,6 +88,7 @@ To run this project, please follow these steps:
 ## 📄 License
 
 This project is licensed under the MIT License.
+
 
 
 
