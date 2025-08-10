@@ -1,5 +1,10 @@
 # court-app
 
+## 🎬 Demo Video
+
+[**Click here to watch the demo video**](https://youtu.be/cSqcZzBnoBQ?si=tew9FE1lVhloBPTu)
+
+
 # ⚖️ Court-app Data Fetcher Mini-Dashboard
 
 A Python-based tool to fetch case metadata and judgments from the eCourts portal for the Gaya District Court. This project is a submission for Task 1 of the internship selection process.
@@ -78,15 +83,10 @@ Running the `scraper.py` script produces a successful result in the terminal and
 ![Screenshot of Successful Run] <img width="1916" height="1008" alt="Screenshot 2025-08-10 144931" src="https://github.com/user-attachments/assets/854ece42-f5d2-4e02-9117-464417a512ff" />
    
 
-    
-## 🎬 Demo Video
-
-[**Click here to watch the demo video**](https://your-youtube-or-loom-link.com)
-
-
 ## 📄 License
 
 This project is licensed under the MIT License.
+
 
 
 
