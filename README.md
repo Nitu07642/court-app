@@ -4,7 +4,8 @@
 
 A Python-based tool to fetch case metadata and judgments from the eCourts portal for the Gaya District Court. This project is a submission for Task 1 of the internship selection process.
 
-![Streamlit UI](<<img width="1919" height="872" alt="Screenshot 2025-08-10 143241" src="https://github.com/user-attachments/assets/723d1c75-0f45-4e0d-a2c0-230f7b59bbe1" />
+![Streamlit UI](<<<img width="1915" height="882" alt="Screenshot 2025-08-10 143559" src="https://github.com/user-attachments/assets/18f53a59-cdf4-4808-b287-cf46300f7afe" />
+>
 >
 )
 
@@ -83,5 +84,6 @@ To run this project, please follow these steps:
 ## 📄 License
 
 This project is licensed under the MIT License.
+
 
 
