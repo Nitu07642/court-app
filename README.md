@@ -1,12 +1,11 @@
-﻿# court-data-fetcher
-
 # court-app
 
 # ⚖️ Court-Data Fetcher Mini-Dashboard
 
 A Python-based tool to fetch case metadata and judgments from the eCourts portal for the Gaya District Court. This project is a submission for Task 1 of the internship selection process.
 
-![Streamlit UI](path/to/your/app_ui_screenshot.png)
+![Streamlit UI](<img width="1919" height="872" alt="image" src="https://github.com/user-attachments/assets/ec5d6e55-7758-4d9a-8368-34120d1f8a4c" />
+)
 
 
 ---
@@ -83,3 +82,4 @@ To run this project, please follow these steps:
 ## 📄 License
 
 This project is licensed under the MIT License.
+
