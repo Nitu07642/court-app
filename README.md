@@ -72,6 +72,11 @@ To run this project, please follow these steps:
         ```
     -   The script will open a browser, perform all actions, and save the final case details as `Gaya-Case-Details.pdf` in the project folder. The query will also be logged in `queries.db`.
 
+6.  **final_result:**
+     <img width="1916" height="1008" alt="Screenshot 2025-08-10 144931" src="https://github.com/user-attachments/assets/eeec9854-bf90-4524-a01d-58062e056f9c" />
+   
+  
+
 ## 🎬 Demo Video
 
 [**Click here to watch the demo video**](https://your-youtube-or-loom-link.com)
@@ -80,6 +85,7 @@ To run this project, please follow these steps:
 ## 📄 License
 
 This project is licensed under the MIT License.
+
 
 
 
