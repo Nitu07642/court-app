@@ -4,14 +4,13 @@ import os
 import sqlite3
 from datetime import datetime
 
-# Windows + naye Python version ke liye zaroori fix
 asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 
 DB_PATH = "queries.db"
 
 # --- Database Functions ---
 def setup_database():
-    """Ek SQLite database aur table banata hai agar woh pehle se nahi hai."""
+     """ SQLite database table"""
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute("""
@@ -29,7 +28,7 @@ def setup_database():
     conn.close()
 
 def log_query(case_type_value, case_year, result_ok, pdf_path, html):
-    """Har safal fetch ko database mein log karta hai."""
+     """succsesfull fetch  log in database."""
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -45,13 +44,13 @@ def log_query(case_type_value, case_year, result_ok, pdf_path, html):
 async def scrape_court_data():
     setup_database()
 
-    # --- STEP 1: Script chalaane se pehle, in values ko manual रूप से bharein ---
+    # --- STEP 1: ---
     MANUAL_CAPTCHA = "4piyU" 
     CASE_YEAR = "2024"       
     CASE_TYPE_VALUE = "100" # Commercial Suit ke liye
 
-    # --- STEP 2: Yahan 'View' button ka selector daalein ---
-    VIEW_BUTTON_SELECTOR = ".viewCnrDetails" # Yeh result page par 'View' button ka selector hai
+    # --- STEP 2: ---
+    VIEW_BUTTON_SELECTOR = ".viewCnrDetails" # 'View' button 
     
     print("--- Starting Gaya Court Scraper (Search by Case Type) ---")
     
@@ -63,7 +62,7 @@ async def scrape_court_data():
             print(f"Fetching details for Year: {CASE_YEAR}...")
             await page.goto("https://gaya.dcourts.gov.in/case-status-search-by-case-type/", timeout=60000)
 
-            # Dropdowns ke options load hone ke liye 8 second ka pause
+         # pause 8 second
             print("Page loaded. Waiting 8 seconds for dynamic content to load...")
             await page.wait_for_timeout(8000)
 
@@ -84,9 +83,9 @@ async def scrape_court_data():
             
             error_message_visible = await page.locator("text=Invalid Captcha, text=No records found").first.is_visible(timeout=2000)
             if error_message_visible:
-                print("\n❌ ERROR: Invalid CAPTCHA ya 'No records found' message mila.")
+                print("\n ERROR: Invalid CAPTCHA ya 'No records found' message mila.")
             else:
-                print("\n✅ SUCCESS: Case list found. Clicking 'View' button...")
+                print("\n SUCCESS: Case list found. Clicking 'View' button...")
                 
                 first_result_view_button = page.locator(f"#showList {VIEW_BUTTON_SELECTOR}").first
                 
@@ -102,9 +101,9 @@ async def scrape_court_data():
                     # Database mein log karein
                     html_content = await page.content()
                     log_query(CASE_TYPE_VALUE, CASE_YEAR, True, os.path.abspath(pdf_path), html_content)
-                    print(f"\n📄 SUCCESS! Page saved as '{pdf_path}' and query logged to database.")
+                    print(f"\n SUCCESS! Page saved as '{pdf_path}' and query logged to database.")
                 else:
-                    print("❌ ERROR: 'View' button nahi mila.")
+                    print(" ERROR: 'View' button nahi mila.")
                     
         except Exception as e:
             print(f"\nAn error occurred: {e}")
@@ -114,4 +113,5 @@ async def scrape_court_data():
             await browser.close()
 
 if __name__ == "__main__":
+
     asyncio.run(scrape_court_data())
