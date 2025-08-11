@@ -1,5 +1,5 @@
 # app.py
-# Court Case Data Fetcher — Final Professional UI
+# Court Case Data Fetcher 
 # Streamlit + Playwright + SQLite
 
 import asyncio
@@ -13,13 +13,13 @@ import pandas as pd
 import streamlit as st
 from playwright.sync_api import sync_playwright, TimeoutError as PWTimeout
 
-# Windows ke liye zaroori asyncio fix
+# Windows fix
 try:
     asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 except (AttributeError, NotImplementedError):
     pass
 
-# --- Playwright ko Streamlit mein start karne ka sahi tareeka ---
+# --- Playwright in streamlint ---
 if "playwright" not in st.session_state:
     try:
         st.session_state.playwright = sync_playwright().start()
@@ -141,7 +141,7 @@ def get_query_log():
     conn.close()
     return df
 
-# ---------- Streamlit App (Final Professional Layout) ----------
+# ---------- Streamlit App ----------
 st.set_page_config(page_title="Court Case Data Fetcher", page_icon="⚖️", layout="wide", initial_sidebar_state="expanded")
 
 # --- CUSTOM CSS ---
@@ -217,10 +217,10 @@ with st.sidebar:
                 page = get_browser_page()
                 goto_case_number_page(page)
                 select_state_and_district(page, "Bihar", "Gaya")
-                st.success("✅ Portal initialized.")
+                st.success(" Portal initialized.")
                 st.rerun()
             except Exception as e:
-                st.error(f"❌ Failed to initialize: {e}")
+                st.error(f" Failed to initialize: {e}")
 
     if st.button("Reset Browser Session", use_container_width=True, type="secondary"):
         reset_browser()
@@ -236,7 +236,7 @@ with st.sidebar:
         filing_year = st.selectbox("Filing Year", options=range(datetime.now().year, 1990, -1))
         st.divider()
         captcha_text = st.text_input("Enter CAPTCHA from main panel", placeholder="Text from the image")
-        submitted = st.form_submit_button("🔍 Fetch Case Details", use_container_width=True, type="primary")
+        submitted = st.form_submit_button(" Fetch Case Details", use_container_width=True, type="primary")
 
 # --- MAIN PAGE: HEADER, CAPTCHA, AND RESULTS ---
 with st.container():
@@ -363,4 +363,5 @@ footer_html = """
     </div>
 </div>
 """
+
 st.markdown(footer_html, unsafe_allow_html=True)
